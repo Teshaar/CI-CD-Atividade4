@@ -32,7 +32,5 @@ Para acompanhar as execuções, verificar os logs ou realizar as aprovações ma
 ---
 
 ## Evidências da Execução
-> **Atenção:** Adicione abaixo as imagens (prints) comprovando a execução do seu workflow na aba Actions, conforme sugerido na atividade.
-
-* [ INSERIR PRINT AQUI: Visão geral da aba Actions com os jobs passando verdes ]
-* [ INSERIR PRINT AQUI: Tela do workflow pausado aguardando a aprovação manual para Produção ]
+<img width="877" height="790" alt="ATV 4 - aprovar" src="https://github.com/user-attachments/assets/cb3e92ad-14c7-4683-a106-8921d8efb02a" />
+<img width="874" height="651" alt="Aprovado" src="https://github.com/user-attachments/assets/112c1b58-1680-492d-a2cf-19f9156f369a" />
