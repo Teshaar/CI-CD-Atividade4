@@ -1,0 +1,46 @@
+name: Continuous Deployment Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permite rodar o fluxo manualmente na aba Actions
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+      
+      - name: Executar testes (Simulação)
+        run: echo "Executando lint, testes unitários e build da aplicação..."
+
+  deploy-staging:
+    name: Deploy em Staging
+    needs: ci
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        
+      - name: Deploy Staging
+        run: |
+          echo "Realizando o deploy no ambiente de Staging..."
+          echo "Conectando ao banco com a secret: ${{ secrets.DB_PASSWORD_STAGING }}"
+
+  deploy-production:
+    name: Deploy em Produção
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        
+      - name: Deploy Produção
+        run: |
+          echo "Realizando o deploy no ambiente de Produção..."
+          echo "Acessando API com a secret: ${{ secrets.API_KEY_PRODUCTION }}"
